@@ -1,17 +1,33 @@
 package com.modusbox.internal;
 
-import com.modusbox.types.AccountId;
-import com.modusbox.types.CustomerId;
-import com.modusbox.types.PaymentId;
+import com.modusbox.json.PaymentJson;
+import com.modusbox.types.*;
+import lombok.Builder;
 
 import java.math.BigInteger;
 
+@Builder
 public record Payment(PaymentId id,
+                      PaymentKey key,
+
                       String currency,
                       BigInteger amount,
-                      CustomerId originator,
-                      CustomerId beneficiary,
-                      AccountId sender,
-                      AccountId receiver,
+                      OriginatorId originator,
+                      BeneficiaryId beneficiary,
+                      SenderId sender,
+                      ReceiverId receiver,
                       PaymentStatus status) {
+    public PaymentJson toJson() {
+        return PaymentJson.builder()
+                .id(id().raw())
+                .key(key().raw())
+                .currency(currency())
+                .amount(amount())
+                .originator(originator().raw())
+                .beneficiary(beneficiary().raw())
+                .sender(sender().raw())
+                .receiver(receiver().raw())
+                .status(status())
+                .build();
+    }
 }

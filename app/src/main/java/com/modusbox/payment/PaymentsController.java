@@ -1,20 +1,32 @@
 package com.modusbox.payment;
 
-import com.modusbox.MyService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.modusbox.internal.CreatePayment;
+import com.modusbox.internal.Payment;
+import com.modusbox.json.PaymentJson;
+import com.modusbox.types.PaymentId;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
+@RequiredArgsConstructor
 public class PaymentsController {
-    private final MyService myService;
+    private final PaymentService service;
 
-    public PaymentsController(MyService myService) {
-        this.myService = myService;
+    @PostMapping("/payments")
+    public ResponseEntity<PaymentJson> createPayment(final @Valid @RequestBody CreatePayment payment) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.create(payment).toJson());
     }
 
-    @GetMapping("/")
-    public String home() {
-        return myService.message();
+    @GetMapping("/payments/{id}")
+    public ResponseEntity<PaymentJson> getPayment(@PathVariable final UUID id) {
+        return ResponseEntity.of(service.get(new PaymentId(id)).map(Payment::toJson));
     }
 
 }

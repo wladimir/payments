@@ -1,6 +1,6 @@
-package com.modusbox.repository;
+package com.modusbox.payment;
 
-import com.modusbox.entity.PaymentEntity;
+import com.modusbox.payment.PaymentEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

@@ -1,7 +1,3 @@
--- https://www.forbes.com/advisor/banking/what-are-the-different-types-of-bank-accounts/
-create type account_type as enum ('checking', 'savings', 'money market', 'certificate of deposit');
-create type payment_status as enum ('created', 'sent', 'accepted', 'rejected');
-
 create table customers
 (
     id   uuid primary key,
@@ -11,22 +7,23 @@ create table customers
 create table accounts
 (
     id          uuid primary key,
-    customer_id uuid         not null,
-    type        account_type not null,
-    number      text         not null unique,
+    customer_id uuid not null,
+    type        text not null,
+    number      text not null unique,
     foreign key (customer_id) references customers (id)
 );
 
 create table payments
 (
     id          uuid primary key,
-    currency    char(3)        not null,
-    amount      bigint         not null, -- in cents
-    originator  uuid           not null,
-    beneficiary uuid           not null,
-    sender      uuid           not null,
-    receiver    uuid           not null,
-    status      payment_status not null,
+    key         text    not null unique,
+    currency    char(3) not null,
+    amount      bigint  not null, -- in cents
+    originator  uuid    not null,
+    beneficiary uuid    not null,
+    sender      uuid    not null,
+    receiver    uuid    not null,
+    status      text    not null,
     foreign key (originator) references customers (id),
     foreign key (beneficiary) references customers (id),
     foreign key (sender) references accounts (id),

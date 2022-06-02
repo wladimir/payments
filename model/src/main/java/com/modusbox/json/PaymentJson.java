@@ -1,18 +1,19 @@
 package com.modusbox.json;
 
 import com.modusbox.internal.PaymentStatus;
-import com.modusbox.types.AccountId;
-import com.modusbox.types.CustomerId;
-import com.modusbox.types.PaymentId;
+import lombok.Builder;
 
 import java.math.BigInteger;
+import java.util.UUID;
 
-public record PaymentJson(PaymentId id,
+@Builder
+public record PaymentJson(UUID id,
+                          String key,
                           String currency,
                           BigInteger amount,
-                          CustomerId originator,
-                          CustomerId beneficiary,
-                          AccountId sender,
-                          AccountId receiver,
+                          UUID originator,
+                          UUID beneficiary,
+                          UUID sender,
+                          UUID receiver,
                           PaymentStatus status) {
 }

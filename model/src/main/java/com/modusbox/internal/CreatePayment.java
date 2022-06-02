@@ -1,25 +1,24 @@
 package com.modusbox.internal;
 
-import com.modusbox.types.AccountId;
-import com.modusbox.types.CustomerId;
-import com.modusbox.types.PaymentId;
+import com.modusbox.validation.ValidUUID;
+import lombok.Builder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.math.BigInteger;
 
+@Builder
 public record CreatePayment(
-        @NotBlank PaymentId id,
+        @NotBlank String key,
         @NotBlank @Size(min = 3, max = 3)
         String currency,
-        @NotBlank
         BigInteger amount,
-        @NotBlank
-        CustomerId originator,
-        @NotBlank
-        CustomerId beneficiary,
-        @NotBlank
-        AccountId sender,
-        @NotBlank
-        AccountId receiver) {
+        @ValidUUID
+        String originator,
+        @ValidUUID
+        String beneficiary,
+        @ValidUUID
+        String sender,
+        @ValidUUID
+        String receiver) {
 }

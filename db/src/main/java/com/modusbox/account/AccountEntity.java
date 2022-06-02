@@ -1,25 +1,26 @@
-package com.modusbox.entity;
+package com.modusbox.account;
 
+import com.modusbox.internal.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "customers")
+@Table(name = "accounts")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class CustomerEntity {
+public class AccountEntity {
     @Id
     @GeneratedValue
     private UUID id;
-
-    @Column
-    private String name;
+    private UUID customerId;
+    @Enumerated(EnumType.STRING)
+    private AccountType type;
+    private String number;
 }
