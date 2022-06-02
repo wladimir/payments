@@ -1,4 +1,4 @@
-package com.modusbox.web;
+package com.modusbox.payment;
 
 import com.modusbox.MyService;
 import org.springframework.web.bind.annotation.GetMapping;
