@@ -1,6 +1,10 @@
 package com.modusbox.types;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+
 import java.util.UUID;
 
-public record OriginatorId(UUID raw) {
+@JsonSerialize(using = RawValueSerializer.class)
+public record OriginatorId(@Getter UUID raw) implements RawValue<UUID> {
 }

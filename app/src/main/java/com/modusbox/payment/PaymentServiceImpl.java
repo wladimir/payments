@@ -6,7 +6,10 @@ import com.modusbox.types.PaymentId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Component
 @RequiredArgsConstructor
@@ -16,6 +19,14 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public Payment create(final CreatePayment payment) {
         return repository.save(PaymentEntity.toEntity(payment)).toPayment();
+    }
+
+    @Override
+    public List<Payment> getAll() {
+        return StreamSupport
+                .stream(repository.findAll().spliterator(), false)
+                .map(PaymentEntity::toPayment)
+                .collect(Collectors.toList());
     }
 
     @Override
