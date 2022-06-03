@@ -22,7 +22,7 @@ public class PaymentsController {
 
     @PostMapping("/payments")
     public ResponseEntity<PaymentJson> createPayment(final @Valid @RequestBody CreatePayment payment) {
-        return ResponseEntity.status(HttpStatus.CREATED)
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(PaymentMapper.INSTANCE.toJson(service.create(payment)));
     }
 
