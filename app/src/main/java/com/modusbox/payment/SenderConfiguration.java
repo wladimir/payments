@@ -10,9 +10,9 @@ public class SenderConfiguration {
     @Bean("senderTaskExecutor")
     public TaskExecutor exportTaskExecutor() {
         final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(5);
-        executor.setMaxPoolSize(10);
-        executor.setQueueCapacity(15);
+        executor.setCorePoolSize(50);
+        executor.setMaxPoolSize(100);
+        executor.setQueueCapacity(150);
         executor.setThreadNamePrefix("sender");
         executor.setAwaitTerminationSeconds(60);
         return executor;
