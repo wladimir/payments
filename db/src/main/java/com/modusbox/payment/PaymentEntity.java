@@ -30,6 +30,8 @@ public class PaymentEntity {
     private UUID receiver;
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;
+    @Version
+    private Long version;
 
     public Payment toPayment() {
         return Payment.builder()

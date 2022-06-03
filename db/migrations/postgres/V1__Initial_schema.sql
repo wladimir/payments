@@ -24,6 +24,7 @@ create table payments
     sender      uuid    not null,
     receiver    uuid    not null,
     status      text    not null,
+    version     bigint default null,
     foreign key (originator) references customers (id),
     foreign key (beneficiary) references customers (id),
     foreign key (sender) references accounts (id),
