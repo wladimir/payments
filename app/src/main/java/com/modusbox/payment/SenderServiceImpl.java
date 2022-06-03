@@ -31,6 +31,7 @@ public class SenderServiceImpl implements SenderService {
                     taskExecutor.execute(() -> {
                         Payment payment = entity.toPayment();
                         System.out.println("Sending to Kafka: " + payment.id());
+                        // alt. pessimistic locking
 
                         updateStatus(entity);
                     });
