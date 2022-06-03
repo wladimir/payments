@@ -12,8 +12,8 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.transaction.Transactional;
 
-@RequiredArgsConstructor
 @Slf4j
+@RequiredArgsConstructor
 public class SenderServiceImpl implements SenderService {
     @Qualifier("senderTaskExecutor")
     private final TaskExecutor taskExecutor;
