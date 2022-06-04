@@ -2,7 +2,6 @@ package com.modusbox.internal;
 
 import com.modusbox.types.*;
 import lombok.Builder;
-import lombok.Setter;
 
 import java.math.BigInteger;
 
@@ -16,5 +15,5 @@ public record Payment(PaymentId id,
                       BeneficiaryId beneficiary,
                       SenderId sender,
                       ReceiverId receiver,
-                      @Setter PaymentStatus status) {
+                      PaymentStatus status) {
 }

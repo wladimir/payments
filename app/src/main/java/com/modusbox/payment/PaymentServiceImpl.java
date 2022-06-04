@@ -4,14 +4,14 @@ import com.modusbox.internal.CreatePayment;
 import com.modusbox.internal.Payment;
 import com.modusbox.types.PaymentId;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
     private final PaymentRepository repository;
