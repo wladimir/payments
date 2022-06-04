@@ -1,2 +1,2 @@
-/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/MyService.java
-/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/ServiceProperties.java
+/Users/vlad/IdeaProjects/modusbox/payments/db/src/main/java/com/modusbox/payment/PaymentEntity.java
+/Users/vlad/IdeaProjects/modusbox/payments/db/src/main/java/com/modusbox/payment/PaymentRepository.java

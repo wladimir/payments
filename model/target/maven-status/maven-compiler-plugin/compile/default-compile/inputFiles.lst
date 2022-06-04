@@ -1,2 +1,14 @@
-/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/MyService.java
-/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/ServiceProperties.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/PaymentKey.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/BeneficiaryId.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/internal/PaymentStatus.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/internal/Payment.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/RawValueSerializer.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/validation/ValidUUID.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/OriginatorId.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/SenderId.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/ReceiverId.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/internal/CreatePayment.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/json/PaymentMapper.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/PaymentId.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/types/RawValue.java
+/Users/vlad/IdeaProjects/modusbox/payments/model/src/main/java/com/modusbox/json/PaymentJson.java
