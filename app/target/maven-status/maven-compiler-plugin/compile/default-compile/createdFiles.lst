@@ -1,8 +1,0 @@
-com/modusbox/payment/PaymentService.class
-META-INF/spring-configuration-metadata.json
-com/modusbox/PaymentsApplication.class
-com/modusbox/payment/SenderConfiguration.class
-com/modusbox/payment/SenderServiceImpl.class
-com/modusbox/payment/PaymentsController.class
-com/modusbox/payment/SenderService.class
-com/modusbox/payment/PaymentServiceImpl.class
