@@ -40,7 +40,7 @@ services:
     depends_on:
       - zookeeper
     healthcheck:
-      test: ["CMD", "nc", "-vz", "localhost", "29092"]
+      test: ["CMD", "nc", "-z", "localhost", "29092"]
       interval: 5s
       timeout: 10s
       retries: 5
@@ -60,13 +60,11 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      db:
-        condition: service_healthy
-      kafka:
-        condition: service_healthy
+      - migrate
+      - kafka
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/payments
-      - KAFKA_BOOTSTRAP_ADDRESS=kafka:29092
+      - KAFKA_BOOTSTRAPADDRESS=kafka:9092
       - MESSAGE_TOPIC_NAME=payments
 
 volumes:
