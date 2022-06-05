@@ -52,4 +52,5 @@ Decoupling of database writes from message processing allows us to scale both co
 
 * add tests
 * improve mappers for object conversions, so no manual work is required
+* add better error messages, also return them to client
 * add CRUD API for customers and accounts
