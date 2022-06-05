@@ -35,14 +35,14 @@ some performance penalty.
 Any questions wrt performance should be backed by data based on load testing, ideally as part of CICD processes 
 so any regressions can be timely observed. To make sure that application can handle the expected load 
 (max 1M writes, 10M reads per customer per day), we can start by checking how this translates to both storage and compute requirements:
-* based on our data model we can estimate one record (payment) size, eg. if `uuid` type is 16 bytes, and we have 5 such fields, etc. 
+Based on our data model we can estimate one record (payment) size, eg. if `uuid` type is 16 bytes, and we have 5 such fields, etc. 
 For practicality we can use handy Postgres function to check column sizes
 ```
 select sum(pg_column_size(p))
 from payments p
 where id = '364551b0-d403-4b8e-84ca-94e4a6c68402';
 ```
-This return 200 bytes for one sample record (slighly over expected value - the sum of all field sizes, but we can attribute that to Postgres internals)
+This returns 200 bytes for one sample record (slighly over expected value - the sum of all field sizes, but we can attribute that to Postgres internals)
 which means that we will roughly need 200 * 1000000 = 200 MB / per 1M messages.
 Compute part (both reads and writes) should be load tested, making note of p90, p95 and p99 values which can be used to specify
 SLAs to customers, together with considering any multi-tenancy specific requirements.
