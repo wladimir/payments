@@ -13,7 +13,7 @@
 
 * GET all payments
 ```
-curl --location --request GET 'http://localhost:8080/payments' \
+curl --location --request GET 'http://localhost:8080/payments'
 ```
 
 * GET one payment
