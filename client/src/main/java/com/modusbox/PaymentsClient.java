@@ -19,7 +19,7 @@ public class PaymentsClient {
         final HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        final int size = 2;
+        final int size = 10;
         final CountDownLatch latch = new CountDownLatch(size);
 
         for (int i = 0; i < size; i++) {
